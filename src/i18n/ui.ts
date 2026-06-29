@@ -7,6 +7,7 @@ export const defaultLang = 'zh-hk';
 
 export const ui = {
   'zh-hk': {
+    'site.name': '錦田有機兔農莊',
     'nav.home': '首頁',
     'nav.farm': '我們的農場',
     'nav.breeds': '品種',
@@ -42,6 +43,7 @@ export const ui = {
     'faq.reveal.a': '這是一個諷刺網站。我們想請您思考：如果您不忍心吃可愛的寵物兔，那為什麼可以心安理得地吃豬、牛或雞？豬和牛同樣聰明，同樣能感受到痛苦。這種對不同物種的區別對待，正是我們想要探討的「物種歧視」。',
   },
   'en': {
+    'site.name': 'Kam Tin Organic Rabbit Farm',
     'nav.home': 'Home',
     'nav.farm': 'Our Farm',
     'nav.breeds': 'Breeds',

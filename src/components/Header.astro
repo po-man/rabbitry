@@ -28,7 +28,7 @@ const currentPath = getPathWithoutLang(Astro.url.pathname);
 <header>
   <div class="container">
     <nav>
-      <a href="/" class="logo">HK Rabbitry</a>
+      <a href="/" class="logo">{t('site.name')}</a>
       <ul class="nav-links">
         {navLinks.map((link) => (
           <li><a href={link.href}>{link.label}</a></li>
