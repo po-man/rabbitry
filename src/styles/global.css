@@ -201,7 +201,7 @@ footer {
 }
 
 .disclaimer {
-  font-size: 0.85rem;
+  font-size: 0.75rem;
   color: #dbd6d0;
   margin-top: 1rem;
   font-style: italic;
@@ -254,7 +254,6 @@ footer {
 }
 
 .faq-list {
-  max-width: 800px;
   margin: 0 auto;
 }
 
