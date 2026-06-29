@@ -29,21 +29,40 @@ const currentPath = getPathWithoutLang(Astro.url.pathname);
   <div class="container">
     <nav>
       <a href="/" class="logo">{t('site.name')}</a>
-      <ul class="nav-links">
-        {navLinks.map((link) => (
-          <li><a href={link.href}>{link.label}</a></li>
-        ))}
-      </ul>
-      <div class="lang-toggle">
-        {Object.entries(languages).map(([l, label]) => (
-          <a 
-            href={l === 'zh-hk' ? currentPath : `/en${currentPath}`} 
-            class={lang === l ? 'active' : ''}
-          >
-            {label}
-          </a>
-        ))}
+
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <div class="nav-content" id="nav-content">
+        <ul class="nav-links">
+          {navLinks.map((link) => (
+            <li><a href={link.href}>{link.label}</a></li>
+          ))}
+        </ul>
+        <div class="lang-toggle">
+          {Object.entries(languages).map(([l, label]) => (
+            <a
+              href={l === 'zh-hk' ? currentPath : `/en${currentPath}`}
+              class={lang === l ? 'active' : ''}
+            >
+              {label}
+            </a>
+          ))}
+        </div>
       </div>
     </nav>
   </div>
 </header>
+
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const navContent = document.getElementById('nav-content');
+
+  hamburger?.addEventListener('click', () => {
+    hamburger.classList.toggle('active');
+    navContent?.classList.toggle('active');
+  });
+</script>
