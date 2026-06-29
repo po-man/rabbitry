@@ -87,7 +87,7 @@ nav {
 }
 
 .logo {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   font-weight: 800;
   color: var(--color-primary);
 }
@@ -120,7 +120,7 @@ nav {
   display: none;
   flex-direction: column;
   justify-content: space-around;
-  width: 2rem;
+  width: 1.5rem;
   height: 1.5rem;
   background: transparent;
   border: none;
@@ -130,7 +130,7 @@ nav {
 }
 
 .hamburger span {
-  width: 2rem;
+  width: 1.5rem;
   height: 0.2rem;
   background: var(--color-primary);
   border-radius: 10px;
