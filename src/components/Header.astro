@@ -1,0 +1,49 @@
+---
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+import { languages } from '../i18n/ui';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const navLinks = [
+  { href: `/${lang === 'zh-hk' ? '' : 'en/'}`, label: t('nav.home') },
+  { href: `/${lang === 'zh-hk' ? '' : 'en/'}our-farm`, label: t('nav.farm') },
+  { href: `/${lang === 'zh-hk' ? '' : 'en/'}breeds`, label: t('nav.breeds') },
+  { href: `/${lang === 'zh-hk' ? '' : 'en/'}shop`, label: t('nav.shop') },
+  { href: `/${lang === 'zh-hk' ? '' : 'en/'}faq`, label: t('nav.faq') },
+];
+
+// Simple helper to get the path without the lang prefix
+const getPathWithoutLang = (pathname: string) => {
+  const parts = pathname.split('/');
+  if (parts[1] === 'en') {
+    return '/' + parts.slice(2).join('/');
+  }
+  return pathname;
+};
+
+const currentPath = getPathWithoutLang(Astro.url.pathname);
+---
+
+<header>
+  <div class="container">
+    <nav>
+      <a href="/" class="logo">HK Rabbitry</a>
+      <ul class="nav-links">
+        {navLinks.map((link) => (
+          <li><a href={link.href}>{link.label}</a></li>
+        ))}
+      </ul>
+      <div class="lang-toggle">
+        {Object.entries(languages).map(([l, label]) => (
+          <a 
+            href={l === 'zh-hk' ? currentPath : `/en${currentPath}`} 
+            class={lang === l ? 'active' : ''}
+          >
+            {label}
+          </a>
+        ))}
+      </div>
+    </nav>
+  </div>
+</header>

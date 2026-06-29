@@ -1,0 +1,13 @@
+---
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<footer>
+  <div class="container">
+    <p>&copy; {new Date().getFullYear()} HK Rabbitry. All rights reserved.</p>
+    <p class="disclaimer">{t('footer.disclaimer')}</p>
+  </div>
+</footer>

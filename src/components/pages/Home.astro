@@ -1,0 +1,21 @@
+---
+import { getLangFromUrl, useTranslations } from '../../i18n/utils';
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<section class="hero">
+  <div class="container">
+    <h1>{t('home.hero.title')}</h1>
+    <p>{t('home.hero.subtitle')}</p>
+    <a href={`/${lang === 'zh-hk' ? '' : 'en/'}breeds`} class="btn">{t('home.cta')}</a>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <h2>{t('home.value.title')}</h2>
+    <p>{t('home.value.p1')}</p>
+    <p>{t('home.value.p2')}</p>
+  </div>
+</section>

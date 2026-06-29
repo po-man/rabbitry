@@ -1,0 +1,11 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import OurFarmPage from '../components/pages/OurFarm.astro';
+import { useTranslations } from '../i18n/utils';
+
+const t = useTranslations('zh-hk');
+---
+
+<BaseLayout title={t('nav.farm')}>
+	<OurFarmPage />
+</BaseLayout>

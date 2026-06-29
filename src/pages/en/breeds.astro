@@ -1,0 +1,11 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import BreedsPage from '../../components/pages/Breeds.astro';
+import { useTranslations } from '../../i18n/utils';
+
+const t = useTranslations('en');
+---
+
+<BaseLayout title={t('nav.breeds')}>
+	<BreedsPage />
+</BaseLayout>

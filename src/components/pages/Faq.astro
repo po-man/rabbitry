@@ -1,0 +1,25 @@
+---
+import { getLangFromUrl, useTranslations } from '../../i18n/utils';
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<section>
+  <div class="container">
+    <h1>{t('faq.title')}</h1>
+    <div class="faq-list">
+      <div class="faq-item">
+        <h3>{t('faq.q1')}</h3>
+        <p>{t('faq.a1')}</p>
+      </div>
+      <div class="faq-item">
+        <h3>{t('faq.q2')}</h3>
+        <p>{t('faq.a2')}</p>
+      </div>
+      <div class="faq-item reveal-question">
+        <h3>{t('faq.reveal.q')}</h3>
+        <p>{t('faq.reveal.a')}</p>
+      </div>
+    </div>
+  </div>
+</section>

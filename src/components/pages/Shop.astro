@@ -1,0 +1,38 @@
+---
+import { getLangFromUrl, useTranslations } from '../../i18n/utils';
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const products = [
+  { id: 'fitness', name: t('products.fitness.name'), desc: t('products.fitness.desc'), image: '/assets/images/fitness-pack.jpg' },
+];
+---
+
+<section>
+  <div class="container">
+    <h1>{t('products.title')}</h1>
+    <div class="breed-grid">
+      {products.map((product) => (
+        <div class="breed-card">
+          <img src={product.image} alt={product.name} class="breed-img" />
+          <div class="breed-info">
+            <h3>{product.name}</h3>
+            <p>{product.desc}</p>
+            <button class="btn add-to-cart" data-lang={lang}>{t('breeds.add_to_cart')}</button>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<script>
+  const buttons = document.querySelectorAll('.add-to-cart');
+  buttons.forEach(button => {
+    button.addEventListener('click', () => {
+      const lang = button.getAttribute('data-lang');
+      const faqPath = lang === 'zh-hk' ? '/faq' : '/en/faq';
+      window.location.href = faqPath;
+    });
+  });
+</script>

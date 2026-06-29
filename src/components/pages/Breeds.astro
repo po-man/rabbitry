@@ -1,0 +1,40 @@
+---
+import { getLangFromUrl, useTranslations } from '../../i18n/utils';
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const breeds = [
+  { id: 'netherland', name: t('breeds.netherland.name'), desc: t('breeds.netherland.desc'), image: '/assets/images/netherland.jpg' },
+  { id: 'holland', name: t('breeds.holland.name'), desc: t('breeds.holland.desc'), image: '/assets/images/holland.jpg' },
+  { id: 'lionhead', name: t('breeds.lionhead.name'), desc: t('breeds.lionhead.desc'), image: '/assets/images/lionhead.jpg' },
+];
+---
+
+<section>
+  <div class="container">
+    <h1>{t('breeds.title')}</h1>
+    <div class="breed-grid">
+      {breeds.map((breed) => (
+        <div class="breed-card">
+          <img src={breed.image} alt={breed.name} class="breed-img" />
+          <div class="breed-info">
+            <h3>{breed.name}</h3>
+            <p>{breed.desc}</p>
+            <button class="btn add-to-cart" data-lang={lang}>{t('breeds.add_to_cart')}</button>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<script>
+  const buttons = document.querySelectorAll('.add-to-cart');
+  buttons.forEach(button => {
+    button.addEventListener('click', () => {
+      const lang = button.getAttribute('data-lang');
+      const faqPath = lang === 'zh-hk' ? '/faq' : '/en/faq';
+      window.location.href = faqPath;
+    });
+  });
+</script>
