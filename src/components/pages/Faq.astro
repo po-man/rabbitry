@@ -30,7 +30,7 @@ const t = useTranslations(lang);
       </div>
       <div class="faq-item reveal-question">
         <h3>{t('faq.reveal.q')}</h3>
-        <p>{t('faq.reveal.a')}</p>
+        <p set:html={t('faq.reveal.a')} />
       </div>
     </div>
   </div>

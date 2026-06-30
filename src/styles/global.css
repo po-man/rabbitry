@@ -280,6 +280,16 @@ footer {
   color: var(--color-secondary);
 }
 
+.reveal-question a {
+  color: var(--color-primary);
+  text-decoration: underline;
+  font-weight: 600;
+}
+
+.reveal-question a:hover {
+  color: var(--color-secondary);
+}
+
 /* Page Banners */
 .page-banner {
   width: 100%;
