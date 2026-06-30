@@ -12,7 +12,7 @@ const products = [
   <img src="/assets/images/sliced.jpg" alt="Healthy macro-friendly fitness meals" />
 </div>
 
-<section>
+<section id="premium-products">
   <div class="container">
     <h1>{t('products.title')}</h1>
     <div class="breed-grid">
@@ -39,4 +39,17 @@ const products = [
       window.location.href = faqPath;
     });
   });
+
+  const params = new URLSearchParams(window.location.search);
+  const targetId = params.get('scrollTo');
+
+  if (targetId) {
+    const targetElement = document.getElementById(targetId);
+    if (targetElement) {
+      setTimeout(() => {
+        targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        window.history.replaceState({}, document.title, window.location.pathname);
+      }, 300);
+    }
+  }
 </script>

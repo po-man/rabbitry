@@ -26,6 +26,12 @@ const currentPath = getPathWithoutLang(Astro.url.pathname);
 ---
 
 <header>
+  <a href={`/${lang === 'zh-hk' ? '' : 'en/'}shop?scrollTo=premium-products`} class="promo-bar">
+    <div class="container promo-container">
+      <span>{t('promo.text')} <strong>{t('promo.link')} &rarr;</strong></span>
+    </div>
+  </a>
+
   <div class="container">
     <nav>
       <a href={`/${lang === 'zh-hk' ? '' : 'en/'}`} class="logo">{t('site.name')}</a>
