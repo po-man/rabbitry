@@ -58,7 +58,7 @@ export const ui = {
     'faq.q5': '兔子的處理過程是怎樣的？',
     'faq.a5': '我們以最感恩及尊重的態度在本地處理兔隻。整個過程保證快速、無痛且零壓力，確保兔隻不會感受到痛苦。這是最人道、最符合動物福利的做法。',
     'faq.reveal.q': '等等，這是真的農場嗎？',
-    'faq.reveal.a': '這是一個諷刺網站。我們想請您思考：如果您不忍心吃可愛的寵物兔，那為什麼可以心安理得地吃豬、牛或雞？這種對不同物種的區別對待，正是所謂的「物種歧視」（Speciesism）。<br/><br/>了解更多關於我們為何會將動物分類的心理學，請觀看關於<a href="https://www.youtube.com/watch?v=F3D49rjffEo" target="_blank" rel="noopener noreferrer"><b>肉食主義的動畫短片</b></a>。',
+    'faq.reveal.a': '這是一個探討人類心理的社會實驗網站。我們想請您思考：如果您不忍心吃可愛的寵物兔，那為什麼可以心安理得地吃豬、牛或雞？這種對不同物種的區別對待，正是所謂的「物種歧視」（Speciesism）。<br/><br/>了解更多關於我們為何會將動物分類的心理學，請觀看關於<a href="https://www.youtube.com/watch?v=F3D49rjffEo" target="_blank" rel="noopener noreferrer"><b>肉食主義的動畫短片</b></a>。',
   },
   'en': {
     'site.name': 'Lantau Organic Rabbit Farm',
@@ -112,6 +112,6 @@ export const ui = {
     'faq.q5': 'How are the rabbits processed?',
     'faq.a5': 'We process our rabbits locally with the utmost respect. They are given a quick, painless, and stress-free end. We ensure they do not suffer, making it the most humane method possible.',
     'faq.reveal.q': 'Wait, is this a real farm?',
-    'faq.reveal.a': 'This is a satirical website. We ask you to reflect: if you wouldn\'t eat a pet rabbit, why eat a pig, a cow, or a chicken? This inconsistent moral boundary is what we call "speciesism".<br/><br/>To understand the psychology behind why we love some animals and eat others, watch this short explainer on <a href="https://www.youtube.com/watch?v=F3D49rjffEo" target="_blank" rel="noopener noreferrer"><b>Carnism</b></a>.',
+    'faq.reveal.a': 'This website is a social experiment exploring human psychology. We ask you to reflect: if you wouldn\'t eat a pet rabbit, why eat a pig, a cow, or a chicken? This inconsistent moral boundary is what we call "speciesism".<br/><br/>To understand the psychology behind why we love some animals and eat others, watch this short explainer on <a href="https://www.youtube.com/watch?v=F3D49rjffEo" target="_blank" rel="noopener noreferrer"><b>Carnism</b></a>.',
   },
 } as const;
