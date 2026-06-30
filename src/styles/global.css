@@ -21,6 +21,7 @@ body {
   background-color: var(--color-bg);
   color: var(--color-text);
   line-height: 1.6;
+  touch-action: manipulation;
 }
 
 a {
