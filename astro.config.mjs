@@ -1,8 +1,7 @@
 import { defineConfig } from 'astro/config';
 
 export default defineConfig({
-  site: 'https://po-man.github.io',
-  base: '/rabbitry',
+  site: 'https://rabbit.plantbased.studio',
   i18n: {
     defaultLocale: 'zh-hk',
     locales: ['zh-hk', 'en'],
