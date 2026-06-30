@@ -115,7 +115,6 @@ nav {
 
 .lang-toggle a.active {
   color: var(--color-primary);
-  text-decoration: underline;
 }
 
 /* Hamburger Menu */
