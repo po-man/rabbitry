@@ -28,7 +28,7 @@ const currentPath = getPathWithoutLang(Astro.url.pathname);
 <header>
   <div class="container">
     <nav>
-      <a href="/" class="logo">{t('site.name')}</a>
+      <a href={`/${lang === 'zh-hk' ? '' : 'en/'}`} class="logo">{t('site.name')}</a>
 
       <button class="hamburger" id="hamburger" aria-label="Menu">
         <span></span>
