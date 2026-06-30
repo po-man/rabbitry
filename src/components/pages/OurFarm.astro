@@ -4,6 +4,10 @@ const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 ---
 
+<div class="page-banner">
+  <img src="/assets/images/farm-fresh.jpg" alt="Our peaceful farm in Kam Tin" />
+</div>
+
 <section>
   <div class="container">
     <h1>{t('farm.story.title')}</h1>

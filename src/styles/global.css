@@ -279,3 +279,54 @@ footer {
 .reveal-question h3 {
   color: var(--color-secondary);
 }
+
+/* Page Banners */
+.page-banner {
+  width: 100%;
+  height: 400px;
+  background-color: #eee;
+  margin-bottom: 2rem;
+}
+
+.page-banner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Split Section for Home Page */
+.split-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+.split-content h2 {
+  margin-bottom: 1.5rem;
+}
+
+.split-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+/* Responsive updates */
+@media (max-width: 768px) {
+  .page-banner {
+    height: 250px; /* Shorter banner on mobile */
+  }
+
+  .split-section {
+    grid-template-columns: 1fr; /* Stack vertically on mobile */
+    gap: 2rem;
+  }
+
+  /* Reverse order on mobile so image appears above text */
+  .split-image {
+    order: -1;
+  }
+}
