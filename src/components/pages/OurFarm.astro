@@ -2,6 +2,8 @@
 import { getLangFromUrl, useTranslations } from '../../i18n/utils';
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
+
+const basePath = lang === 'zh-hk' ? '' : '/en';
 ---
 
 <div class="page-banner">
@@ -16,5 +18,14 @@ const t = useTranslations(lang);
     <p>{t('farm.story.p3')}</p>
     <p>{t('farm.story.p4')}</p>
     <p>{t('farm.story.p5')}</p>
+
+    <div class="farm-cta-section">
+      <a href={`${basePath}/breeds`} class="btn">
+        {t('farm.cta.primary')}
+      </a>
+      <a href={`${basePath}/faq`} class="btn btn-secondary">
+        {t('farm.cta.secondary')}
+      </a>
+    </div>
   </div>
 </section>
