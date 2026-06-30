@@ -6,6 +6,10 @@ import { useTranslations } from '../../i18n/utils';
 const t = useTranslations('en');
 ---
 
-<BaseLayout title={t('nav.breeds')}>
+<BaseLayout
+	title={t('nav.breeds')}
+	description={t('seo.breeds.description')}
+	image="/assets/images/steak.jpg"
+>
 	<BreedsPage />
 </BaseLayout>

@@ -6,6 +6,10 @@ import { useTranslations } from '../../i18n/utils';
 const t = useTranslations('en');
 ---
 
-<BaseLayout title={t('nav.shop')}>
+<BaseLayout
+	title={t('nav.shop')}
+	description={t('seo.shop.description')}
+	image="/assets/images/sliced.jpg"
+>
 	<ShopPage />
 </BaseLayout>
