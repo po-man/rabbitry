@@ -554,3 +554,21 @@ footer {
   font-weight: 600;
   color: var(--color-text);
 }
+
+/* Freshness Guarantee Badge */
+.freshness-guarantee {
+  font-size: 0.85rem;
+  color: var(--color-primary);
+  background-color: #f0f7ec; /* Very light sage green */
+  padding: 0.8rem 1rem;
+  border-left: 4px solid var(--color-primary);
+  border-radius: 0 4px 4px 0;
+  margin-bottom: 1.5rem;
+  line-height: 1.5;
+}
+
+.freshness-guarantee strong {
+  display: block;
+  margin-bottom: 0.2rem;
+  color: var(--color-text);
+}
