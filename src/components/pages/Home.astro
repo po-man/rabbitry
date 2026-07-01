@@ -2,6 +2,28 @@
 import { getLangFromUrl, useTranslations } from '../../i18n/utils';
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
+
+// Build the reviews array dynamically using translations
+const reviews = [
+  {
+    name: t('reviews.1.name'),
+    initials: 'SW',
+    text: t('reviews.1.text'),
+    image: '/assets/images/review-stew.jpg'
+  },
+  {
+    name: t('reviews.2.name'),
+    initials: 'JK',
+    text: t('reviews.2.text'),
+    image: '/assets/images/review-fitness.jpg'
+  },
+  {
+    name: t('reviews.3.name'),
+    initials: 'ML',
+    text: t('reviews.3.text'),
+    image: '/assets/images/review-roast.jpg'
+  }
+];
 ---
 
 <section class="hero">
@@ -21,6 +43,27 @@ const t = useTranslations(lang);
     </div>
     <div class="split-image">
       <img src="/assets/images/butchers-cut.jpg" alt="Premium plated rabbit meat" />
+    </div>
+  </div>
+</section>
+
+<section class="reviews-section">
+  <div class="container">
+    <h2 style="text-align: center;">{t('reviews.title')}</h2>
+    <div class="reviews-grid">
+      {reviews.map((review) => (
+        <div class="review-card">
+          <div class="review-header">
+            <div class="review-avatar">{review.initials}</div>
+            <div class="review-meta">
+              <span class="review-name">{review.name}</span>
+              <span class="review-stars">★★★★★</span>
+            </div>
+          </div>
+          <p class="review-text">{review.text}</p>
+          <img src={review.image} alt={`Customer photo by ${review.name}`} class="review-image" />
+        </div>
+      ))}
     </div>
   </div>
 </section>
