@@ -13,19 +13,23 @@ const basePath = lang === 'zh-hk' ? '' : '/en';
 <section>
   <div class="container">
     <h1>{t('farm.story.title')}</h1>
-    <p>{t('farm.story.p1')}</p>
-    <p>{t('farm.story.p2')}</p>
-    <p>{t('farm.story.p3')}</p>
-    <p>{t('farm.story.p4')}</p>
-    <p>{t('farm.story.p5')}</p>
 
-    <div class="farm-cta-section">
-      <a href={`${basePath}/breeds`} class="btn">
-        {t('farm.cta.primary')}
-      </a>
-      <a href={`${basePath}/faq`} class="btn btn-secondary">
-        {t('farm.cta.secondary')}
-      </a>
+    <div class="farm-section">
+      <h2>{t('farm.story.subtitle1')}</h2>
+      <p>{t('farm.story.p1')}</p>
+      <p>{t('farm.story.p2')}</p>
+      <p>{t('farm.story.p3')}</p>
+      <p>{t('farm.story.p4')}</p>
+    </div>
+
+    <div class="farm-section">
+      <h2>{t('farm.story.subtitle2')}</h2>
+      <p>{t('farm.story.p5')}</p>
+    </div>
+
+    <div class="farm-section final-promise">
+      <h2>{t('farm.story.subtitle3')}</h2>
+      <p><strong>{t('farm.story.p6')}</strong></p>
     </div>
   </div>
 </section>

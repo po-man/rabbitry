@@ -367,6 +367,23 @@ footer {
   margin-left: 0.5rem;
 }
 
+.farm-section {
+  margin-bottom: 3rem;
+}
+
+.farm-section h2 {
+  font-size: 1.5rem;
+  color: var(--color-secondary); /* Uses the Saddle Brown for a rustic corporate look */
+  margin-bottom: 1rem;
+  border-bottom: 1px solid #eaeaea;
+  padding-bottom: 0.5rem;
+}
+
+.final-promise p {
+  font-size: 1.2rem;
+  color: var(--color-primary);
+}
+
 .farm-cta-section {
   text-align: center;
   margin-top: 3rem;
