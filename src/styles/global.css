@@ -405,3 +405,34 @@ footer {
   background-color: var(--color-primary);
   color: white;
 }
+
+/* Purchase Options Layout */
+.purchase-options {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  margin-top: 1.5rem;
+}
+
+.breed-select {
+  padding: 0.8rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-family: var(--font-main);
+  font-size: 1rem;
+  color: var(--color-text);
+  background-color: #fafafa;
+  cursor: pointer;
+  appearance: auto;
+  transition: border-color 0.3s ease;
+}
+
+.breed-select:focus {
+  outline: none;
+  border-color: var(--color-primary);
+}
+
+.breed-select option:disabled {
+  color: #999;
+  font-style: italic;
+}

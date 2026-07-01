@@ -24,7 +24,16 @@ const breeds = [
           <div class="breed-info">
             <h3>{breed.name}</h3>
             <p>{breed.desc}</p>
-            <button class="btn add-to-cart" data-lang={lang}>{t('breeds.add_to_cart')}</button>
+
+            <div class="purchase-options">
+              <select class="breed-select" aria-label="Select cut">
+                <option value="whole">{t('breeds.option.whole')}</option>
+                <option value="boneless">{t('breeds.option.boneless')}</option>
+                <option value="live" disabled>{t('breeds.option.live')}</option>
+              </select>
+              <button class="btn add-to-cart" data-lang={lang}>{t('breeds.add_to_cart')}</button>
+            </div>
+
           </div>
         </div>
       ))}
