@@ -509,3 +509,48 @@ footer {
   object-fit: cover;
   border-radius: 8px;
 }
+
+/* Traceability Tag */
+.traceability-box {
+  background-color: #f8fcf8; /* Very subtle green tint */
+  border: 1px dashed var(--color-primary);
+  border-radius: 6px;
+  padding: 1rem;
+  margin: 1.5rem 0;
+  font-size: 0.85rem;
+}
+
+.trace-title {
+  color: var(--color-primary);
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.trace-details {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  color: #555;
+}
+
+.trace-details li {
+  margin-bottom: 0.3rem;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #eaeaea;
+  padding-bottom: 0.2rem;
+}
+
+.trace-details li:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.trace-label {
+  font-weight: 600;
+  color: var(--color-text);
+}

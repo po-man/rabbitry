@@ -22,6 +22,25 @@ const products = [
           <div class="breed-info">
             <h3>{product.name}</h3>
             <p>{product.desc}</p>
+
+            <div class="traceability-box">
+              <div class="trace-title">{t('products.trace.title')}</div>
+              <ul class="trace-details">
+                <li>
+                  <span class="trace-label">{t('products.trace.batch')}</span>
+                  <span>{t('products.trace.name')}</span>
+                </li>
+                <li>
+                  <span class="trace-label">{t('products.trace.age')}</span>
+                  <span>{t('products.trace.age_val')}</span>
+                </li>
+                <li>
+                  <span class="trace-label">{t('products.trace.hobby')}</span>
+                  <span>{t('products.trace.hobby_val')}</span>
+                </li>
+              </ul>
+            </div>
+
             <button class="btn add-to-cart" data-lang={lang}>{t('breeds.add_to_cart')}</button>
           </div>
         </div>
