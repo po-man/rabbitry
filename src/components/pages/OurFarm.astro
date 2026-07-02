@@ -31,5 +31,14 @@ const basePath = lang === 'zh-hk' ? '' : '/en';
       <h2>{t('farm.story.subtitle3')}</h2>
       <p><strong>{t('farm.story.p6')}</strong></p>
     </div>
+
+    <div class="farm-cta-section">
+      <a href={`${basePath}/breeds`} class="btn">
+        {t('farm.cta.primary')}
+      </a>
+      <a href={`${basePath}/faq`} class="btn btn-secondary">
+        {t('farm.cta.secondary')}
+      </a>
+    </div>
   </div>
 </section>
