@@ -4,9 +4,9 @@ const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
 const breeds = [
-  { id: 'netherland', name: t('breeds.netherland.name'), desc: t('breeds.netherland.desc'), image: '/assets/images/netherland.jpg' },
-  { id: 'holland', name: t('breeds.holland.name'), desc: t('breeds.holland.desc'), image: '/assets/images/holland.jpg' },
-  { id: 'lionhead', name: t('breeds.lionhead.name'), desc: t('breeds.lionhead.desc'), image: '/assets/images/lionhead.jpg' },
+  { id: 'netherland', name: t('breeds.netherland.name'), desc: t('breeds.netherland.desc'), chef: t('breeds.netherland.chef'), image: '/assets/images/netherland.jpg' },
+  { id: 'holland', name: t('breeds.holland.name'), desc: t('breeds.holland.desc'), chef: t('breeds.holland.chef'), image: '/assets/images/holland.jpg' },
+  { id: 'lionhead', name: t('breeds.lionhead.name'), desc: t('breeds.lionhead.desc'), chef: t('breeds.lionhead.chef'), image: '/assets/images/lionhead.jpg' },
 ];
 ---
 
@@ -24,6 +24,8 @@ const breeds = [
           <div class="breed-info">
             <h3>{breed.name}</h3>
             <p>{breed.desc}</p>
+
+            {breed.chef && <div class="feature-badge badge-chef" set:html={breed.chef} />}
 
             <div class="purchase-options">
               <select class="breed-select" aria-label="Select cut">

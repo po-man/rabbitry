@@ -555,22 +555,40 @@ footer {
   color: var(--color-text);
 }
 
-/* Freshness Guarantee Badge */
-.freshness-guarantee {
+/* Unified Feature Badges */
+.feature-badge {
   font-size: 0.85rem;
-  color: var(--color-primary);
-  background-color: #f0f7ec; /* Very light sage green */
   padding: 0.8rem 1rem;
-  border-left: 4px solid var(--color-primary);
   border-radius: 0 4px 4px 0;
   margin-bottom: 1.5rem;
   line-height: 1.5;
 }
 
-.freshness-guarantee strong {
+.feature-badge strong {
   display: block;
   margin-bottom: 0.2rem;
   color: var(--color-text);
+}
+
+/* Theme 1: Freshness (Sage Green) */
+.badge-freshness {
+  color: var(--color-primary);
+  background-color: #f0f7ec;
+  border-left: 4px solid var(--color-primary);
+}
+
+/* Theme 2: Eco-Friendly (Earthy Teal) */
+.badge-eco {
+  color: #2c7a7b;
+  background-color: #e6fffa;
+  border-left: 4px solid #319795;
+}
+
+/* Theme 3: Chef's Note (Warm Saddle Brown) */
+.badge-chef {
+  color: var(--color-secondary);
+  background-color: #fcf4ec;
+  border-left: 4px solid var(--color-secondary);
 }
 
 .farm-inline-img {
