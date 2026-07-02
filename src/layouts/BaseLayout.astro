@@ -43,6 +43,8 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site || Astro.url);
 		<meta property="twitter:image" content={metaImage} />
 
 		<title>{title} | {t('site.name')}</title>
+
+		<script data-goatcounter="https://rabbit.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 	</head>
 	<body>
 		<Header />
@@ -50,5 +52,25 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site || Astro.url);
 			<slot />
 		</main>
 		<Footer />
+
+		<script>
+            document.addEventListener('click', (event) => {
+                // Instantly ignore clicks unless they hit an element with data-track
+                const target = (event.target as HTMLElement).closest('[data-track]');
+                if (!target) return;
+
+                if (window.goatcounter && window.goatcounter.count) {
+                    const trackId = target.getAttribute('data-track');
+                    const eventPath = `Action: ${trackId}`;
+
+                    window.goatcounter.count({
+                        path: eventPath,
+                        title: eventPath,
+                        event: true,
+                        no_session: true
+                    });
+                }
+            });
+        </script>
 	</body>
 </html>
