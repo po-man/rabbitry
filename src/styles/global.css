@@ -572,3 +572,12 @@ footer {
   margin-bottom: 0.2rem;
   color: var(--color-text);
 }
+
+.farm-inline-img {
+  width: 100%;
+  max-height: 400px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin: 1.5rem 0;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+}
