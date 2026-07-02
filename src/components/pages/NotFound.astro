@@ -1,0 +1,30 @@
+---
+import { ui } from '../../i18n/ui';
+import { getLangFromUrl, useTranslations } from '../../i18n/utils';
+
+const tZh = (key: keyof typeof ui['zh-hk']) => ui['zh-hk'][key];
+const tEn = (key: keyof typeof ui['en']) => ui['en'][key];
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const basePath = lang === 'zh-hk' ? '' : '/en';
+---
+
+<section class="hero" style="padding: 5rem 0;">
+  <div class="container">
+    <h1 style="font-size: 6rem; margin-bottom: 1rem; color: var(--color-accent);">404</h1>
+    
+    <h2 style="color: white; margin-bottom: 2rem;">
+      {t('404.heading')}<br />
+    </h2>
+    
+    <p style="font-size: 1.2rem; margin-bottom: 3rem; max-width: 600px; margin-left: auto; margin-right: auto; color: white;">
+      <span set:html={t('404.desc')} /><br />
+    </p>
+
+    <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+      <a href={`${basePath}/`}  class="btn">{t('404.cta')}</a>
+    </div>
+  </div>
+</section>

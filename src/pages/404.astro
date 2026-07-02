@@ -1,0 +1,23 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import NotFoundPage from '../components/pages/NotFound.astro';
+import { useTranslations } from '../i18n/utils';
+
+const t = useTranslations('zh-hk');
+---
+
+<BaseLayout
+	title={t('404.title')}
+	description={t('404.desc')}
+	image="/assets/images/hero-bg.jpg"
+>
+	<NotFoundPage />
+</BaseLayout>
+
+<script>
+  // If the user gets lost on the English side of the site, 
+  // redirect them to the English 404 page so the Header/Footer match.
+  if (window.location.pathname.startsWith('/en/')) {
+    window.location.replace('/en/404');
+  }
+</script>

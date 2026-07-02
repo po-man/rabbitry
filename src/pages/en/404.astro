@@ -1,0 +1,16 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import NotFoundPage from '../../components/pages/NotFound.astro';
+import { useTranslations } from '../../i18n/utils';
+
+// This forces the BaseLayout (Header/Footer) to render in English
+const t = useTranslations('en');
+---
+
+<BaseLayout
+	title={t('404.title')}
+	description={t('404.desc')}
+	image="/assets/images/hero-bg.jpg"
+>
+	<NotFoundPage />
+</BaseLayout>
