@@ -13,16 +13,23 @@ const navLinks = [
   { href: `/${lang === 'zh-hk' ? '' : 'en/'}faq`, label: t('nav.faq') },
 ];
 
-// Simple helper to get the path without the lang prefix
+// Helper: Safely remove trailing slashes from any path (except the root "/")
+const normalizePath = (path: string) => path.endsWith('/') && path.length > 1 ? path.slice(0, -1) : path;
+
+// The current URL path safely normalized
+const normalizedCurrent = normalizePath(Astro.url.pathname);
+
+// Helper: Get the base path without the language prefix for the language switcher
 const getPathWithoutLang = (pathname: string) => {
-  const parts = pathname.split('/');
-  if (parts[1] === 'en') {
-    return '/' + parts.slice(2).join('/');
+  if (pathname.startsWith('/en')) {
+    const withoutEn = pathname.substring(3);
+    return withoutEn === '' ? '/' : withoutEn;
   }
   return pathname;
 };
 
-const currentPath = getPathWithoutLang(Astro.url.pathname);
+// The clean base path for the language toggle
+const cleanPath = getPathWithoutLang(normalizedCurrent);
 ---
 
 <header>
@@ -48,7 +55,7 @@ const currentPath = getPathWithoutLang(Astro.url.pathname);
             <li>
               <a
                 href={link.href}
-                class={(lang === 'zh-hk' ? currentPath : `/en${currentPath}`) === link.href ? 'active' : ''}
+                class={normalizePath(link.href) === normalizedCurrent ? 'active' : ''}
               >
                 {link.label}
               </a>
@@ -56,14 +63,18 @@ const currentPath = getPathWithoutLang(Astro.url.pathname);
           ))}
         </ul>
         <div class="lang-toggle">
-          {Object.entries(languages).map(([l, label]) => (
-            <a
-              href={l === 'zh-hk' ? currentPath : `/en${currentPath}`}
-              class={lang === l ? 'active' : ''}
-            >
-              {label}
-            </a>
-          ))}
+          {Object.entries(languages).map(([l, label]) => {
+            // Dynamically construct the target href based on the selected language
+            const targetHref = l === 'zh-hk' ? cleanPath : (cleanPath === '/' ? '/en/' : `/en${cleanPath}`);
+            return (
+              <a
+                href={targetHref}
+                class={lang === l ? 'active' : ''}
+              >
+                {label}
+              </a>
+            );
+          })}
         </div>
       </div>
     </nav>
