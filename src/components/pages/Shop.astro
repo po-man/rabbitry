@@ -60,17 +60,4 @@ const products = [
       window.location.href = faqPath;
     });
   });
-
-  const params = new URLSearchParams(window.location.search);
-  const targetId = params.get('scrollTo');
-
-  if (targetId) {
-    const targetElement = document.getElementById(targetId);
-    if (targetElement) {
-      setTimeout(() => {
-        targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        window.history.replaceState({}, document.title, window.location.pathname);
-      }, 300);
-    }
-  }
 </script>
