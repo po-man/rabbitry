@@ -249,8 +249,10 @@ footer {
   transition: transform 0.3s ease;
 }
 
-.breed-card:hover {
-  transform: translateY(-5px);
+@media (hover: hover) {
+  .breed-card:hover {
+    transform: translateY(-5px);
+  }
 }
 
 .breed-info {
@@ -259,9 +261,65 @@ footer {
 
 .breed-img {
   width: 100%;
-  height: 200px;
+  height: 250px;
   background-color: #eee;
   object-fit: cover;
+  display: block;
+  border-bottom: 1px solid #eaeaea;
+}
+
+.breed-gallery {
+  display: flex;
+  flex-direction: column;
+  background-color: #fdfdfd;
+  border-bottom: 1px solid #eaeaea;
+  padding-bottom: 1rem;
+}
+
+.main-image-container {
+  width: 100%;
+  height: 250px;
+  background-color: #eee;
+  overflow: hidden;
+  margin-bottom: 0.5rem;
+}
+
+.main-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity 0.15s ease-in-out;
+}
+
+.thumbnail-strip {
+  display: flex;
+  justify-content: center;
+  gap: 0.8rem;
+  padding: 0 1.5rem;
+}
+
+.thumbnail {
+  width: 50px;
+  height: 50px;
+  border-radius: 6px;
+  overflow: hidden;
+  cursor: pointer;
+  border: 2px solid transparent;
+  opacity: 0.6;
+  background: transparent;
+  padding: 0;
+  transition: all 0.2s ease;
+}
+
+.thumbnail img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.thumbnail:hover, .thumbnail.active {
+  opacity: 1;
+  border-color: var(--color-primary);
 }
 
 .faq-list {

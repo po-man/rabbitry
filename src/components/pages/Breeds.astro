@@ -4,9 +4,39 @@ const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
 const breeds = [
-  { id: 'netherland', name: t('breeds.netherland.name'), desc: t('breeds.netherland.desc'), chef: t('breeds.netherland.chef'), image: '/assets/images/netherland.jpg' },
-  { id: 'holland', name: t('breeds.holland.name'), desc: t('breeds.holland.desc'), chef: t('breeds.holland.chef'), image: '/assets/images/holland.jpg' },
-  { id: 'lionhead', name: t('breeds.lionhead.name'), desc: t('breeds.lionhead.desc'), chef: t('breeds.lionhead.chef'), image: '/assets/images/lionhead.jpg' },
+  {
+    id: 'netherland',
+    name: t('breeds.netherland.name'),
+    desc: t('breeds.netherland.desc'),
+    chef: t('breeds.netherland.chef'),
+    gallery: [
+      '/assets/images/netherland.jpg',
+      '/assets/images/raw-meat-1.jpg',
+      '/assets/images/cooked-meat-1.jpg'
+    ]
+  },
+  {
+    id: 'holland',
+    name: t('breeds.holland.name'),
+    desc: t('breeds.holland.desc'),
+    chef: t('breeds.holland.chef'),
+    gallery: [
+      '/assets/images/holland.jpg',
+      '/assets/images/raw-meat-2.jpg',
+      '/assets/images/cooked-meat-2.jpg'
+    ]
+  },
+  {
+    id: 'lionhead',
+    name: t('breeds.lionhead.name'),
+    desc: t('breeds.lionhead.desc'),
+    chef: t('breeds.lionhead.chef'),
+    gallery: [
+      '/assets/images/lionhead.jpg',
+      '/assets/images/raw-meat-3.jpg',
+      '/assets/images/cooked-meat-3.jpg'
+    ]
+  },
 ];
 ---
 
@@ -20,7 +50,25 @@ const breeds = [
     <div class="breed-grid">
       {breeds.map((breed) => (
         <div class="breed-card">
-          <img src={breed.image} alt={breed.name} class="breed-img" />
+
+          <div class="breed-gallery">
+            <div class="main-image-container">
+              <img src={breed.gallery[0]} alt={breed.name} class="main-image" id={`main-img-${breed.id}`} />
+            </div>
+            <div class="thumbnail-strip">
+              {breed.gallery.map((img, index) => (
+                <button
+                  class={`thumbnail ${index === 0 ? 'active' : ''}`}
+                  data-target={`main-img-${breed.id}`}
+                  data-src={img}
+                  aria-label={`View product image ${index + 1}`}
+                >
+                  <img src={img} alt={`Thumbnail ${index + 1}`} />
+                </button>
+              ))}
+            </div>
+          </div>
+
           <div class="breed-info">
             <h3>{breed.name}</h3>
             <p>{breed.desc}</p>
@@ -50,6 +98,59 @@ const breeds = [
       const lang = button.getAttribute('data-lang');
       const faqPath = lang === 'zh-hk' ? '/faq' : '/en/faq';
       window.location.href = faqPath;
+    });
+  });
+
+  const thumbnailStrips = document.querySelectorAll('.thumbnail-strip');
+
+  thumbnailStrips.forEach(strip => {
+    const thumbnails = strip.querySelectorAll('.thumbnail');
+    if (thumbnails.length === 0) return;
+
+    // Get the main image element for this specific gallery
+    const targetId = thumbnails[0].getAttribute('data-target');
+    const mainImg = document.getElementById(targetId) as HTMLImageElement;
+
+    if (!mainImg) return;
+
+    // Smooth fade function
+    const updateMainImage = (newSrc: string | null) => {
+      if (!newSrc || mainImg.getAttribute('src') === newSrc) return;
+
+      mainImg.style.opacity = '0.4'; // Dip opacity
+      setTimeout(() => {
+        mainImg.src = newSrc; // Swap image mid-fade
+        mainImg.style.opacity = '1'; // Return to full opacity
+      }, 150); // Matches the 0.15s CSS transition
+    };
+
+    thumbnails.forEach(thumb => {
+      const btn = thumb as HTMLButtonElement;
+      const thumbSrc = btn.getAttribute('data-src');
+
+      // CLICK: Set new active baseline and permanently swap
+      btn.addEventListener('click', () => {
+        strip.querySelectorAll('.thumbnail').forEach(t => t.classList.remove('active'));
+        btn.classList.add('active');
+        updateMainImage(thumbSrc);
+      });
+
+      // HOVER (Desktop only): Preview the image
+      btn.addEventListener('mouseenter', () => {
+        if (window.matchMedia('(hover: hover)').matches) {
+          updateMainImage(thumbSrc);
+        }
+      });
+    });
+
+    // LEAVE STRIP (Desktop only): Revert to the clicked/active image
+    strip.addEventListener('mouseleave', () => {
+      if (window.matchMedia('(hover: hover)').matches) {
+        const activeThumb = strip.querySelector('.thumbnail.active') as HTMLButtonElement;
+        if (activeThumb) {
+          updateMainImage(activeThumb.getAttribute('data-src'));
+        }
+      }
     });
   });
 </script>
