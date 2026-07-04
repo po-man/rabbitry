@@ -95,9 +95,18 @@ nav {
 }
 
 .logo {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
   font-size: 1.2rem;
   font-weight: 800;
   color: var(--color-primary);
+}
+
+.logo-icon {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
 }
 
 .nav-content {
@@ -166,6 +175,28 @@ nav {
 @media (max-width: 768px) {
   .hamburger {
     display: flex;
+  }
+
+  header > .container:not(.promo-container) {
+    padding-top: 0.8rem;
+    padding-bottom: 0.8rem;
+  }
+
+  .logo {
+    font-size: 1.0rem; /* Shrink text slightly */
+    gap: 0.4rem;
+  }
+
+  .logo-icon {
+    width: 28px;
+    height: 28px;
+  }
+
+  .logo span {
+    max-width: 55vw; /* Prevents pushing the hamburger menu off-screen */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   .nav-content {

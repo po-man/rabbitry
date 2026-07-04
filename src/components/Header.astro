@@ -41,7 +41,10 @@ const cleanPath = getPathWithoutLang(normalizedCurrent);
 
   <div class="container">
     <nav>
-      <a href={`/${lang === 'zh-hk' ? '' : 'en/'}`} class="logo">{t('site.name')}</a>
+      <a href={`/${lang === 'zh-hk' ? '' : 'en/'}`} class="logo">
+        <img src="/favicon.png" alt="Lantau Organic Rabbit Farm Logo" width="32" height="32" class="logo-icon" />
+        <span>{t('site.name')}</span>
+      </a>
 
       <button class="hamburger" id="hamburger" aria-label="Menu">
         <span></span>
