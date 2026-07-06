@@ -578,6 +578,39 @@ footer {
   margin-top: 2rem;
 }
 
+/* Mobile overrides: The Scroll-Snap Carousel */
+@media (max-width: 768px) {
+  .reviews-grid {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    /* Aligns the snap point with the container's 2rem padding */
+    scroll-padding: 0 2rem;
+    -webkit-overflow-scrolling: touch;
+
+    scrollbar-width: none;
+    gap: 1rem;
+
+    /* Pull grid out to viewport edges to allow full-width swiping */
+    margin-left: -2rem;
+    margin-right: -2rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    padding-bottom: 1rem; /* Accommodates the card's box-shadow */
+  }
+
+  .reviews-grid::-webkit-scrollbar {
+    display: none;
+  }
+
+  .review-card {
+    /* THE TRAP CUE: silently prompting the user to swipe and discover the next review. */
+    flex: 0 0 82%;
+    scroll-snap-align: center;
+  }
+}
+
 .review-card {
   background: white;
   padding: 1.5rem;

@@ -51,7 +51,7 @@ const reviews = [
 <section class="reviews-section">
   <div class="container">
     <h2 style="text-align: center;">{t('reviews.title')}</h2>
-    <div class="reviews-grid">
+    <div class="reviews-grid" tabindex="0" role="region" aria-label="Customer reviews carousel">
       {reviews.map((review) => (
         <div class="review-card">
           <div class="review-header">
