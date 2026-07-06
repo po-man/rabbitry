@@ -3,8 +3,26 @@ import { getLangFromUrl, useTranslations } from '../../i18n/utils';
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
+// Refactored to pass unique traceability details per product
 const products = [
-  { id: 'fitness', name: t('products.fitness.name'), desc: t('products.fitness.desc'), image: '/assets/images/fitness-pack.jpg' },
+  {
+    id: 'fitness',
+    name: t('products.fitness.name'),
+    desc: t('products.fitness.desc'),
+    image: '/assets/images/fitness-pack.jpg',
+    traceName: t('products.trace.name'),
+    traceAge: t('products.trace.age_val'),
+    traceHobby: t('products.trace.hobby_val')
+  },
+  {
+    id: 'bbq',
+    name: t('products.bbq.name'),
+    desc: t('products.bbq.desc'),
+    image: '/assets/images/bbq-pack.jpg',
+    traceName: t('products.bbq.trace.name'),
+    traceAge: t('products.bbq.trace.age_val'),
+    traceHobby: t('products.bbq.trace.hobby_val')
+  }
 ];
 ---
 
@@ -17,7 +35,7 @@ const products = [
     <h1>{t('products.title')}</h1>
     <div class="breed-grid">
       {products.map((product) => (
-        <div class="breed-card">
+        <div class="breed-card" id={`product-${product.id}`}>
           <img src={product.image} alt={product.name} class="breed-img" />
           <div class="breed-info">
             <h3>{product.name}</h3>
@@ -28,15 +46,15 @@ const products = [
               <ul class="trace-details">
                 <li>
                   <span class="trace-label">{t('products.trace.batch')}</span>
-                  <span>{t('products.trace.name')}</span>
+                  <span>{product.traceName}</span>
                 </li>
                 <li>
                   <span class="trace-label">{t('products.trace.age')}</span>
-                  <span>{t('products.trace.age_val')}</span>
+                  <span>{product.traceAge}</span>
                 </li>
                 <li>
                   <span class="trace-label">{t('products.trace.hobby')}</span>
-                  <span>{t('products.trace.hobby_val')}</span>
+                  <span>{product.traceHobby}</span>
                 </li>
               </ul>
             </div>

@@ -30,14 +30,35 @@ const getPathWithoutLang = (pathname: string) => {
 
 // The clean base path for the language toggle
 const cleanPath = getPathWithoutLang(normalizedCurrent);
+
+// --- Build-time Promo Link Logic ---
+const isShopPage = cleanPath === '/shop';
+
+// If we are building the Shop page, just use anchor tags.
+// Otherwise, use the full URL with the query parameter.
+const fitnessHref = isShopPage
+  ? '#product-fitness'
+  : `/${lang === 'zh-hk' ? '' : 'en/'}shop?scrollTo=product-fitness`;
+
+const bbqHref = isShopPage
+  ? '#product-bbq'
+  : `/${lang === 'zh-hk' ? '' : 'en/'}shop?scrollTo=product-bbq`;
 ---
 
 <header>
-  <a href={`/${lang === 'zh-hk' ? '' : 'en/'}shop?scrollTo=premium-products`} class="promo-bar" data-track="promo--shop-now">
-    <div class="container promo-container">
-      <span>{t('promo.text')} <strong>{t('promo.link')} &rarr;</strong></span>
+  <div class="promo-bar">
+    <div class="promo-carousel">
+      <a href={fitnessHref} class="promo-slide" data-track="promo--shop-fitness">
+        <span>{t('promo.text')} <strong>{t('promo.link')} &rarr;</strong></span>
+      </a>
+      <a href={bbqHref} class="promo-slide" data-track="promo--shop-bbq">
+        <span>{t('promo.text2')} <strong>{t('promo.link')} &rarr;</strong></span>
+      </a>
+      <a href={fitnessHref} class="promo-slide" data-track="promo--shop-fitness">
+        <span>{t('promo.text')} <strong>{t('promo.link')} &rarr;</strong></span>
+      </a>
     </div>
-  </a>
+  </div>
 
   <div class="container">
     <nav>
