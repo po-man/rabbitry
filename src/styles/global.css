@@ -38,6 +38,10 @@ a:hover {
   color: var(--color-primary);
 }
 
+a, button, select {
+  -webkit-tap-highlight-color: transparent;
+}
+
 .container {
   max-width: var(--max-width);
   margin: 0 auto;
