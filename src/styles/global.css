@@ -845,7 +845,7 @@ footer {
   width: 72px; 
   height: auto;
   transform-origin: 50% 100%; 
-  animation: organic-hop 3s infinite cubic-bezier(0.28, 0.84, 0.42, 1);
+  animation: organic-hop 2.5s infinite cubic-bezier(0.28, 0.84, 0.42, 1);
   will-change: transform;
   overflow: visible;
 }
@@ -853,13 +853,13 @@ footer {
 /* 2. Left Ear Flopping */
 .rabbit-ear-left {
   transform-origin: 139px 110px;
-  animation: ear-flop 3s infinite cubic-bezier(0.28, 0.84, 0.42, 1);
+  animation: ear-flop 2.5s infinite cubic-bezier(0.28, 0.84, 0.42, 1);
 }
 
 /* 3. Right Ear Flopping (slightly offset for realism) */
 .rabbit-ear-right {
   transform-origin: 160px 115px;
-  animation: ear-flop 3s infinite cubic-bezier(0.28, 0.84, 0.42, 1);
+  animation: ear-flop 2.5s infinite cubic-bezier(0.28, 0.84, 0.42, 1);
   animation-delay: 0.05s;
 }
 
@@ -868,89 +868,89 @@ footer {
 .rabbit-arm-right,
 .rabbit-carrot {
   transform-origin: 230px 200px;
-  animation: carrot-bob 3s infinite cubic-bezier(0.28, 0.84, 0.42, 1);
+  animation: carrot-bob 2.5s infinite cubic-bezier(0.28, 0.84, 0.42, 1);
 }
 
 /* 5. Carrot Leaves Fluttering */
 .rabbit-carrot-leaves {
   transform-origin: 276px 170px; /* Precise anchor point at the base of the leaves */
-  animation: leaf-flutter 3s infinite cubic-bezier(0.28, 0.84, 0.42, 1);
+  animation: leaf-flutter 2.5s infinite cubic-bezier(0.28, 0.84, 0.42, 1);
 }
 
 /* 6. Legs Stretching and Tucking */
 .rabbit-leg-hind {
   transform-origin: 60px 260px; /* Anchored to the hip joint */
-  animation: hind-leg-stretch 3s infinite cubic-bezier(0.28, 0.84, 0.42, 1);
+  animation: hind-leg-stretch 2.5s infinite cubic-bezier(0.28, 0.84, 0.42, 1);
 }
 
 .rabbit-leg-front-left {
   transform-origin: 110px 310px; /* Anchored to the left shoulder */
-  animation: front-leg-reach 3s infinite cubic-bezier(0.28, 0.84, 0.42, 1);
+  animation: front-leg-reach 2.5s infinite cubic-bezier(0.28, 0.84, 0.42, 1);
 }
 
 .rabbit-leg-front-right {
   transform-origin: 80px 310px; /* Anchored to the right shoulder */
-  animation: front-leg-reach 3s infinite cubic-bezier(0.28, 0.84, 0.42, 1);
-  animation-delay: 0.05s; /* Slight offset so the front paws don't move rigidly together */
+  animation: front-leg-reach 2.5s infinite cubic-bezier(0.28, 0.84, 0.42, 1);
+  animation-delay: 0.1s; /* Slight offset so the front paws don't move rigidly together */
 }
 
 /* --- The Keyframes --- */
 @keyframes organic-hop {
-  0%, 5% { transform: translateY(0) scale(1, 1); }
-  10% { transform: translateY(0) scale(1.15, 0.85); }
-  20% { transform: translateY(-30px) scale(0.85, 1.15) rotate(-3deg); }
-  30% { transform: translateY(-45px) scale(1, 1) rotate(3deg); }
-  40% { transform: translateY(-15px) scale(0.9, 1.1) rotate(0deg); }
-  45% { transform: translateY(0) scale(1.15, 0.85); }
-  55%, 100% { transform: translateY(0) scale(1, 1); }
+  0%, 8% { transform: translateY(0) scale(1, 1); }
+  16% { transform: translateY(0) scale(1.15, 0.75); }
+  32% { transform: translateY(-30px) scale(0.85, 1.15) rotate(-3deg); }
+  48% { transform: translateY(-45px) scale(1, 1) rotate(3deg); }
+  64% { transform: translateY(-15px) scale(0.9, 1.1) rotate(0deg); }
+  72% { transform: translateY(0) scale(1.15, 0.75); }
+  88%, 100% { transform: translateY(0) scale(1, 1); }
 }
 
 @keyframes ear-flop {
-  0%, 5% { transform: rotate(0deg); }
-  10% { transform: rotate(-8deg); }
-  20% { transform: rotate(-15deg); }
-  30% { transform: rotate(8deg); }
-  40% { transform: rotate(18deg); }
-  45% { transform: rotate(-25deg); }
-  55%, 100% { transform: rotate(0deg); }
+  0%, 8% { transform: rotate(0deg); }
+  16% { transform: rotate(8deg); }
+  32% { transform: rotate(-35deg); }
+  48% { transform: rotate(8deg); }
+  64% { transform: rotate(18deg); }
+  72% { transform: rotate(-25deg); }
+  88%, 100% { transform: rotate(0deg); }
 }
 
 @keyframes carrot-bob {
-  0%, 5% { transform: translateY(0) rotate(0deg); }
-  10% { transform: translateY(6px) rotate(2deg); }
-  20% { transform: translateY(12px) rotate(-3deg); }
-  30% { transform: translateY(-5px) rotate(2deg); }
-  40% { transform: translateY(-8px) rotate(-2deg); }
-  45% { transform: translateY(15px) rotate(5deg); }
-  55%, 100% { transform: translateY(0) rotate(0deg); }
+  0%, 8% { transform: translateY(0) rotate(0deg); }
+  16% { transform: translateY(6px) rotate(2deg); }
+  32% { transform: translateY(12px) rotate(-3deg); }
+  48% { transform: translateY(-5px) rotate(2deg); }
+  64% { transform: translateY(-8px) rotate(-2deg); }
+  72% { transform: translateY(15px) rotate(5deg); }
+  88%, 100% { transform: translateY(0) rotate(0deg); }
 }
 
 @keyframes leaf-flutter {
-  0%, 5% { transform: rotate(0deg); }
-  10% { transform: rotate(-5deg); }  /* Carrot drops down -> drag pulls leaves back */
-  20% { transform: rotate(10deg); }  /* Liftoff -> drag pulls leaves down */
-  30% { transform: rotate(-8deg); }  /* Apex -> leaves float up */
-  40% { transform: rotate(5deg); }   /* Falling -> wind pushes leaves up */
-  45% { transform: rotate(-15deg); } /* Impact -> leaves whip forward/down */
-  55%, 100% { transform: rotate(0deg); }
+  0%, 8% { transform: rotate(0deg); }
+  16% { transform: rotate(-5deg); }  /* Carrot drops down -> drag pulls leaves back */
+  32% { transform: rotate(10deg); }  /* Liftoff -> drag pulls leaves down */
+  48% { transform: rotate(-8deg); }  /* Apex -> leaves float up */
+  64% { transform: rotate(5deg); }   /* Falling -> wind pushes leaves up */
+  72% { transform: rotate(-15deg); } /* Impact -> leaves whip forward/down */
+  88%, 100% { transform: rotate(0deg); }
 }
 
 @keyframes hind-leg-stretch {
-  0%, 5% { transform: rotate(0deg) translateY(0); }
-  10% { transform: rotate(5deg) translateY(-5px); }  /* Squash: Knees bend slightly */
-  20% { transform: rotate(-25deg) translateY(15px); } /* Liftoff: Kick and push back to launch */
-  30% { transform: rotate(15deg) translateY(-10px); } /* Apex: Tuck tight under the body */
-  40% { transform: rotate(-5deg) translateY(10px); }  /* Falling: Start to extend down */
-  45% { transform: rotate(5deg) translateY(-5px); }   /* Impact: Absorb the shock */
-  55%, 100% { transform: rotate(0deg) translateY(0); }
+  0%, 8% { transform: rotate(0deg) translateY(0); }
+  16% { transform: rotate(25deg) translateY(-5px); }  /* Squash: Knees bend slightly */
+  32% { transform: rotate(-25deg) translateY(15px); } /* Liftoff: Kick and push back to launch */
+  48% { transform: rotate(15deg) translateY(-10px); } /* Apex: Tuck tight under the body */
+  64% { transform: rotate(-5deg) translateY(10px); }  /* Falling: Start to extend down */
+  72% { transform: rotate(5deg) translateY(-5px); }   /* Impact: Absorb the shock */
+  88%, 100% { transform: rotate(0deg) translateY(0); }
 }
 
 @keyframes front-leg-reach {
-  0%, 5% { transform: rotate(0deg) translateY(0); }
-  10% { transform: rotate(-5deg) translateY(-5px); }  /* Squash: Paws plant flat */
-  20% { transform: rotate(20deg) translateY(-15px); } /* Liftoff: Paws tuck securely to the chest */
-  30% { transform: rotate(10deg) translateY(-10px); } /* Apex: Still tucked */
-  40% { transform: rotate(-20deg) translateY(20px); } /* Falling: Reach down dramatically to catch the floor! */
-  45% { transform: rotate(-5deg) translateY(-5px); }  /* Impact: Brace */
-  55%, 100% { transform: rotate(0deg) translateY(0); }
+  0%, 8% { transform: rotate(0deg) translateY(0); }
+  16% { transform: rotate(5deg) translateY(-5px); }  /* Squash: Paws plant flat */
+  32% { transform: rotate(20deg) translateY(-15px); } /* Liftoff: Paws tuck securely to the chest */
+  48% { transform: rotate(10deg) translateY(-10px); } /* Apex: Still tucked */
+  64% { transform: rotate(-20deg) translateY(20px); } /* Falling: Reach down dramatically to catch the floor! */
+  72% { transform: rotate(-5deg) translateY(-5px); }  /* Impact: Brace */
+  88%, 100% { transform: rotate(0deg) translateY(0); }
 }
