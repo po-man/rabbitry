@@ -1,0 +1,39 @@
+---
+import campaigns from '../data/campaigns.json';
+
+// 1. Tell Astro which static pages to generate at build time
+export function getStaticPaths() {
+  return campaigns.map((campaign) => {
+    return {
+      params: { slug: campaign.slug },
+      props: { campaign },
+    };
+  });
+}
+
+// 2. Extract the data for the specific page being built
+const { campaign } = Astro.props;
+
+// 3. Construct the final tracking URL safely. 
+// We check if the destination already has query parameters (like ?scrollTo=)
+// so we know whether to append '?campaign=' or '&campaign='
+const separator = campaign.destination.includes('?') ? '&' : '?';
+const finalRedirectUrl = `${campaign.destination}${separator}campaign=${campaign.campaignId}`;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Redirecting...</title>
+  
+  <meta http-equiv="refresh" content={`0;url=${finalRedirectUrl}`} />
+  
+  <script define:vars={{ finalRedirectUrl }}>
+    window.location.replace(finalRedirectUrl);
+  </script>
+</head>
+<body>
+</body>
+</html>
