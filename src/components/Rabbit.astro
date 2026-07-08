@@ -6,14 +6,14 @@ const carrotColor = '#FFD7B1';
 const carrotLeavesColor = '#D5FFBD';
 
 ---
-<div class="footer-rabbit-wrapper" aria-hidden="true">
+<div id="footer-rabbit" class="footer-rabbit-wrapper" aria-hidden="true" title="Click to hop!" data-track="footer--rabbit-hop">
   <svg class="jumping-rabbit" width="327" height="320" viewBox="0 0 327 320" fill="none" xmlns="http://www.w3.org/2000/svg">
     <g class="rabbit-ear-right">
       <path d="M164.343 50.8334C172.169 69.1602 174.465 100.45 174.635 113.804L160.13 119.604L143 116.595C136.962 109.542 123.066 89.3364 115.792 64.9421C106.699 34.4491 117.115 2.56618 120.835 5.14603C124.556 7.72588 154.56 27.9249 164.343 50.8334Z" fill={fillColor}/>
       <path d="M174.635 113.804C174.465 100.45 172.169 69.1601 164.343 50.8334C154.56 27.9249 124.556 7.72588 120.835 5.14603C117.115 2.56618 106.699 34.4491 115.792 64.9421C123.066 89.3364 136.962 109.542 143 116.595" stroke={strokeColor} stroke-width={strokeWidth} stroke-linecap="round" stroke-linejoin="round"/>
     </g>
 
-    <g class="rabbit-leg-hind">
+    <g class="rabbit-tail">
       <ellipse cx="34.5" cy="296.819" rx="23.7924" ry="26.6753" transform="rotate(-33.1074 34.5 296.819)" fill={fillColor} stroke={strokeColor} stroke-width={strokeWidth}/>
     </g>
 
@@ -62,3 +62,23 @@ const carrotLeavesColor = '#D5FFBD';
     </g>
   </svg>
 </div>
+
+<script>
+  const rabbit = document.getElementById('footer-rabbit');
+
+  if (rabbit) {
+    rabbit.addEventListener('click', () => {
+      // Ignore click if it's already jumping
+      if (rabbit.classList.contains('is-jumping')) return;
+
+      // Add jump animation class
+      rabbit.classList.add('is-jumping');
+
+      // The CSS jump animation runs for 2.5 seconds.
+      // We'll remove the class right when it finishes so it loops smoothly back to idle.
+      setTimeout(() => {
+        rabbit.classList.remove('is-jumping');
+      }, 2500);
+    });
+  }
+</script>
