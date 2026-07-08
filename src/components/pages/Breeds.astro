@@ -49,7 +49,7 @@ const breeds = [
     <h1>{t('breeds.title')}</h1>
     <div class="breed-grid">
       {breeds.map((breed) => (
-        <div class="breed-card">
+        <div id={breed.id} class="breed-card">
 
           <div class="breed-gallery">
             <div class="main-image-container">
