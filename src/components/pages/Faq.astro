@@ -32,7 +32,7 @@ const t = useTranslations(lang);
         <h3>{t('faq.q6')}</h3>
         <p>{t('faq.a6')}</p>
       </div>
-      <div class="faq-item reveal-question">
+      <div class="faq-item reveal-question" data-track-visible="faq--viewed-reveal-bubble">
         <h3>{t('faq.reveal.q')}</h3>
         <p set:html={t('faq.reveal.a')} />
       </div>
