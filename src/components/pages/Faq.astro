@@ -77,15 +77,18 @@ const t = useTranslations(lang);
     }
 
     // 2. Log which variant the user saw to GoatCounter on page load
-    if (window.goatcounter && window.goatcounter.count) {
-      const variantDesc = variant === 'A' ? 'A (text only)' : 'B (text + thumbnail)';
-      window.goatcounter.count({
-        path: `Experiment: FAQ Variant ${variantDesc} Served`,
-        title: `Experiment: FAQ Variant ${variantDesc} Served`,
-        event: true,
-        no_session: true
-      });
-    }
+    const trackVariant = setInterval(() => {
+      if (window.goatcounter && window.goatcounter.count) {
+        const variantDesc = variant === 'A' ? 'A (text only)' : 'B (text + thumbnail)';
+        window.goatcounter.count({
+          path: `Experiment: FAQ Variant ${variantDesc} Served`,
+          title: `Experiment: FAQ Variant ${variantDesc} Served`,
+          event: true,
+          no_session: true
+        });
+        clearInterval(trackVariant); // Stop polling once tracked
+      }
+    }, 200); // Check every 200ms
 
     // 3. Dynamically update the tracking IDs based on the variant
     if (textLink) {
