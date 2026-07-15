@@ -64,13 +64,24 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site || Astro.url);
                 const target = (event.target as HTMLElement).closest('[data-track]');
                 if (!target) return;
 
-                if (window.goatcounter && window.goatcounter.count) {
-                    const trackId = target.getAttribute('data-track');
-                    const eventPath = `Action: ${trackId}`;
+                const trackId = target.getAttribute('data-track');
+                if (!trackId) return;
 
+                // Apply strict 1-time session limit ONLY for YouTube conversion links
+                if (trackId.startsWith('faq--youtube') || trackId.startsWith('faq--click-video-thumbnail')) {
+                    const sessionKey = 'tracked_action_faq--youtube';
+
+                    // If they already clicked the video this session, silently ignore
+                    if (sessionStorage.getItem(sessionKey)) return;
+
+                    // Otherwise, mark it as clicked for this session
+                    sessionStorage.setItem(sessionKey, 'true');
+                }
+
+                if (window.goatcounter && window.goatcounter.count) {
                     window.goatcounter.count({
-                        path: eventPath,
-                        title: eventPath,
+                        path: `Action: ${trackId}`,
+                        title: `Action: ${trackId}`,
                         event: true,
                         no_session: true
                     });
